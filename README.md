@@ -1,27 +1,32 @@
-# AmaCalendar
+# AMA-Calendar
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+This project has as a goal to demonstrate my skills of using Angular. 
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## What it can do
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+- You can select a user, and display its event in a calendar
+- You can add a new event to a user's calendar
+- You can edit an event from a user's calendar
+- You can remove an event from a user's calendar
+- You have a choice for the calendar's view: the month view, the week view, the day view
+- You can select the date to display in the calendar's view through a date picker
+- Some unit tests are there, but they are very simple. 
+- The translation is setup
 
-## Further help
+Data manipulation is done using ngrx. 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## What it cannot do
+
+- The validation of the event form is very scarce (for instance you can create an event with an end date before its start date)
+- No validation between users
+- Some basic UX stuffs are missing (as a confirmation for the event deletion)
+- No e2e test
+
