@@ -1,10 +1,11 @@
 # AMA-Calendar
 
-This project has as a goal to demonstrate my skills of using Angular. 
+This project has as a goal to demonstrate my Angular skills. 
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+(Don't forget to do a nom install before running the project).
 
 ## Running unit tests
 
@@ -12,7 +13,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## What it can do
 
-- You can select a user, and display its event in a calendar
+- You can select a user, and display its events in a calendar
 - You can add a new event to a user's calendar
 - You can edit an event from a user's calendar
 - You can remove an event from a user's calendar
