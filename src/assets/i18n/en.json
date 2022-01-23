@@ -1,0 +1,26 @@
+{
+  "title": "AMA-Calendar",
+  "subtitle": "The Only Calendar You Need",
+  "user-picker": {
+    "pick": "Pick a user please"
+  },
+  "events": {
+    "title": "Events",
+    "month": "Month",
+    "week": "Week",
+    "day": "Day",
+    "name": "Name",
+    "start": "Start Date",
+    "end": "End Date",
+    "all-day-event": "All Day Event",
+    "description": "Description"
+  },
+  "buttons": {
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete"
+  },
+  "validators": {
+    "required": "This field is required to complete the form."
+  }
+}

@@ -1,0 +1,27 @@
+<div ngbDropdown class="d-inline-block">
+  <button class="btn btn-outline-primary" ngbDropdownToggle>
+    <ng-container *ngIf="selectedUser;else noUserSelected">
+      <ng-container
+        *ngTemplateOutlet="userItem;context: {user: selectedUser}">
+      </ng-container>
+    </ng-container>
+    <ng-template #noUserSelected>
+      {{ 'user-picker.pick' | translate }}
+    </ng-template>
+  </button>
+  <div ngbDropdownMenu>
+    <button ngbDropdownItem *ngFor="let user of users"
+            class="item"
+            [class.active]="selectedUser?.id === user.id"
+            (click)="selectUser(user)">
+      <ng-container
+        *ngTemplateOutlet="userItem;context: {user: user}">
+      </ng-container>
+    </button>
+  </div>
+</div>
+
+<ng-template #userItem let-user="user">
+  <ama-color-pellet [colorInHex]="user.colorInHex"></ama-color-pellet>
+  {{ user.name }}
+</ng-template>

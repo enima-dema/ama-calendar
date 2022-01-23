@@ -1,0 +1,21 @@
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">{{ 'title' | translate }}</a>
+  <span class="navbar-text">{{ 'subtitle' | translate }}</span>
+</nav>
+<div class="row mt-5">
+  <div class="col-3">
+    <ama-user-picker [users]="users" (onSelection)="onUserSelection($event)"></ama-user-picker>
+    <div class="mt-5">
+      <ngb-datepicker [startDate]="viewDateForDatePicker"
+                      (dateSelect)="datePickerSelect($event)"></ngb-datepicker>
+    </div>
+  </div>
+  <div class="col-9">
+    <ama-calendar-view-picker [view]="view" (viewEmitter)="setView($event)"></ama-calendar-view-picker>
+    <ama-calendar [setEvents]="selectedUserEvents"
+                  [view]="view"
+                  [viewDate]="viewDate"
+                  (eventSelected)="onEventClicked($event)"
+                  (dateSelected)="onDateClicked($event)"></ama-calendar>
+  </div>
+</div>

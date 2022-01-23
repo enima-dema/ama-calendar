@@ -1,0 +1,30 @@
+<div [ngSwitch]="view"
+     class="calendar-container">
+  <div [@monthSlideIn]="view">
+    <mwl-calendar-month-view
+        *ngSwitchCase="monthView"
+        [viewDate]="viewDate"
+        [events]="angularCalendarEvents"
+        (dayClicked)="onMonthClicked($event)"
+        (eventClicked)="onEventClicked($event)"
+    ></mwl-calendar-month-view>
+  </div>
+  <div [@weekSlideIn]="view">
+    <mwl-calendar-week-view
+        *ngSwitchCase="weekView"
+        [viewDate]="viewDate"
+        [events]="angularCalendarEvents"
+        (hourSegmentClicked)="onWeekClicked($event)"
+        (eventClicked)="onEventClicked($event)"
+    ></mwl-calendar-week-view>
+  </div>
+  <div [@daySlideIn]="view">
+    <mwl-calendar-day-view
+        *ngSwitchCase="dayView"
+        [viewDate]="viewDate"
+        [events]="angularCalendarEvents"
+        (hourSegmentClicked)="onDayClicked($event)"
+        (eventClicked)="onEventClicked($event)"
+    ></mwl-calendar-day-view>
+  </div>
+</div>

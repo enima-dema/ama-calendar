@@ -1,0 +1,108 @@
+<div class="modal-container container">
+  <form class="row" #form="ngForm" (submit)="save()">
+    <div class="col-12">
+      <div class="row title text-center">
+        <div class="col-10 offset-1 p-0">
+          <h5>{{ 'events.title' | translate }}</h5>
+        </div>
+        <div class="col-1">
+          <button class="float-right close-button"
+                  (click)="cancel()">
+            X
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <label class="control-label" for="eventTitleId">
+            {{ 'events.name' | translate }} <span title="required">*</span>
+          </label>
+          <input class="form-control"
+                 name="eventTitle"
+                 id="eventTitleId"
+                 [(ngModel)]="title"
+                 required
+                 [placeholder]="'events.name' | translate"
+                 maxlength="30">
+          <div
+            *ngIf="form.controls['eventTitle'] && form.controls['eventTitle'].dirty && form.controls['eventTitle'].getError('required')"
+            class="error">
+            {{ 'validators.required' | translate }}
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4 my-auto">
+          <div class="form-check form-check-sm">
+            <input type="checkbox"
+                   class="form-check-input "
+                   name="allDayLongEvent"
+                   id="allDayLongEventId"
+                   [(ngModel)]="allDayEvent"
+            >
+            <label class="form-check-label" for="allDayLongEventId">
+              {{ 'events.all-day-event' | translate }}
+            </label>
+          </div>
+        </div>
+        <div class="col-4">
+          <label class="control-label d-block">{{ 'events.start' | translate }}
+            <span title="Required"
+                  class="greenText">*</span></label>
+          <ngb-datepicker required
+                          [(ngModel)]="startDate"
+                          name="eventStartAt"
+          ></ngb-datepicker>
+        </div>
+        <div class="col-4">
+          <label class="control-label">{{ 'events.end' | translate }}</label>
+          <ngb-datepicker [(ngModel)]="endDate"
+                          name="eventEndAt"
+          ></ngb-datepicker>
+        </div>
+      </div>
+      <div class="row" *ngIf="!allDayEvent">
+        <div class="col-4 offset-4">
+          <ngb-timepicker [(ngModel)]="startTime"
+                          name="eventStartAtHour"
+          ></ngb-timepicker>
+        </div>
+        <div class="col-4 text-center">
+          <ngb-timepicker [(ngModel)]="endTime"
+                          [size]="'small'"
+                          name="eventEndAtHour"
+          ></ngb-timepicker>
+        </div>
+      </div>
+      <div class="row pb-1">
+        <div class="col-12">
+          <label class="control-label" for="eventDescriptionId">
+            {{ 'events.description' | translate }}
+          </label>
+          <textarea class="form-control" name="eventDescription" rows="3"
+                    id="eventDescriptionId"
+                    [(ngModel)]="description"
+                    [placeholder]="'events.description' | translate"
+                    maxlength="60">
+        </textarea>
+        </div>
+      </div>
+      <div class="row pt-1 pb-1">
+        <div class="col text-right">
+          <button class="btn" id="cancelButton" (click)="cancel()"
+                  type="button">{{ 'buttons.cancel' | translate }}</button>
+        </div>
+        <div class="col text-center" *ngIf="event.id" id="deleteButton">
+          <button class="btn" (click)="delete()" type="button">
+            {{ 'buttons.delete' | translate }}
+          </button>
+        </div>
+        <div class="col float-left">
+          <button class="btn" id="saveButton"
+                  [disabled]="form.invalid">
+            {{ 'buttons.save' | translate }}</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
